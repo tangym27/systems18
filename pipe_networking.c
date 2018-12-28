@@ -21,7 +21,7 @@ int server_handshake(int *to_client) {
   char buffer[HANDSHAKE_BUFFER_SIZE];
   if ( mkfifo("wkp", 0644) < 0 ) {
     printf("[SERVER] Error %d: %s\n", errno, strerror(errno));
-    exit(0);
+    exit(1);
   }
   printf("[SERVER] Congrats! The server pipe was just created.\n");
   printf("[SERVER] Waiting for a connection...\n");
