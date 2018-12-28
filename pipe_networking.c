@@ -1,16 +1,10 @@
 #include "pipe_networking.h"
 
-static void sighandler(int signo){
-  // Catches the SIGUSR1 signal
 
+static void sighandler(int signo){
 	if (signo == SIGINT){
-		//Before exiting, append a message to a file noting that the program exited due to SIGINT
 		printf("\nExited process %d due to SIGINT \n", getpid());
 		remove("wkp");
-		//	remove(client_pipe);
-		// char message[] =  "The program ended due to SIGINT\n";
-		// int w = write(fd, message, sizeof(message));
-		// close(fd);
 		exit(0);
 	}
 }
